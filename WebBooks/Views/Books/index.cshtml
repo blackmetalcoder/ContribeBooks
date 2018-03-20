@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebBooks.Models.Books>
+
+@{
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+    ViewBag.Title = "Böcker";
+}
+}@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            console.log("document loaded");
+            $('#myModal').modal('hide');
+            $("#btnBasket").click(function () {
+                var ajaxCallURL = '/Books/getBasket';
+                var options = { "backdrop": "static", keyboard: true };
+                $.ajax({
+                    type: "GET",
+                    url: ajaxCallURL,
+                    contentType: "application/json; charset=utf-8",
+                    datatype: "json",
+                    success: function (data) {
+                        $('#myModalContent').html(data);
+                        $('#myModal').modal(options);
+                        $('#myModal').modal('show');
+                    },
+                    error: function () {
+                        alert("Content load failed.");
+                    }
+                });
+            });
+            $('#show').hide();
+
+        });
+
+    </script>
+}
+<h2>Bocker</h2>
+
+<div class="alert alert-danger" role="alert" id="show">Added to chart</div>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InStock)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InStock)
+            </td>
+            <td>
+                @Html.ActionLink("Add to chart", "AddToCart", new { author = item.Author, title = item.Title, price = item.Price }, new { id = "btnAdd" })
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div id='myModal' class='modal fade' style="text-align:right; ">
+    <div class="modal-dialog" style="width:900px; height:400px; padding:10px;">
+        <div class="modal-content" style="overflow: auto; padding:10px;">
+            <div class="modal-header">
+                <h4 class="modal-title">Shopping-basket</h4>
+            </div>
+            <div style="height:10px;"></div>
+            <div id='myModalContent' style="width:850px; height:400px; padding:10px;"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <a href='@Url.Action("Create", "Customer")' class="btn btn-primary">Order</a>
+            </div>
+        </div>
+    </div>

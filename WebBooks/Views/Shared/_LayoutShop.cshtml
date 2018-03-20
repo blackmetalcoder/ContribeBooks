@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - BLACKMETALCODER</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Book shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Books", "Index", "Books")</li>
+                    <li type="button" class="btn btn-default navbar-btn btn-primary" id="btnBasket">Shoppping basket<span class="glyphicon glyphicon-shopping-cart" style="padding-left:10px;"></span></li>
+                    <li>@Html.ActionLink("End search", "Index", "Books")</li>
+                </ul>
+                <div class="pull-right" style="padding-top:15px;">
+                   
+                    @using (Html.BeginForm("search", "Books", FormMethod.Post))
+    {
+                @Html.TextBox("filter")
+                <input type="submit" value="Search for book" />
+}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+    </div>
+    <div class="footer">
+        <p><strong>&copy; @DateTime.Now.Year - Bookshop</strong></p>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

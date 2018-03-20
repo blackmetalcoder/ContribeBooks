@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2449dc8c-c4f5-435c-b043-536ac0f1d139" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59545/BookStoreService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BookStoreService.disco" MetadataType="Disco" ID="449a645b-4b26-4139-bd78-3802d7f03a1d" SourceId="1" SourceUrl="http://localhost:59545/BookStoreService.svc?disco" />
+    <MetadataFile FileName="BookStoreService.xsd" MetadataType="Schema" ID="641e491b-249d-462f-ac42-fc5a6e4d7d77" SourceId="1" SourceUrl="http://localhost:59545/BookStoreService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BookStoreService1.xsd" MetadataType="Schema" ID="b0ceddb4-8481-46e4-adf3-34dd9ba75f8d" SourceId="1" SourceUrl="http://localhost:59545/BookStoreService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BookStoreService2.xsd" MetadataType="Schema" ID="876bec75-9a56-4323-bac2-877914a58ad7" SourceId="1" SourceUrl="http://localhost:59545/BookStoreService.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="6d43a184-5639-4c06-bb2f-cbc20efaacf7" SourceId="1" SourceUrl="http://localhost:59545/BookStoreService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
